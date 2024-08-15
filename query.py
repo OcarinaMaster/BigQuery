@@ -17,7 +17,7 @@ end_date_str = end_date.strftime('%Y-%m-%d')
 QUERY = (f'''SELECT * 
             FROM `supply-chain-382719.MMISDB_RPT.all_vouchers_v1` 
             WHERE INVOICE_DT BETWEEN '{start_date}' AND '{end_date}' 
-            ''')
+            LIMIT 10000''')
 if 'clicked' not in st.session_state:
      st.session_state.clicked = False
 def click_button():
