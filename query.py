@@ -30,7 +30,7 @@ st.button('Search', on_click=click_button)
 
 if st.session_state.clicked:
     #df = client.query(QUERY).to_dataframe()
-    df = pd.Dataframe(client.query(QUERY))
+    df = pd.DataFrame(client.query(QUERY))
 
     #df = table.to_dataframe()
 
