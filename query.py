@@ -29,8 +29,8 @@ def paginate_dataframe(df, page, page_size):
 st.button('Search', on_click=click_button)
 
 if st.session_state.clicked:
-    #df = client.query(QUERY).to_dataframe()
-    df = pd.DataFrame(client.query(QUERY))
+    table = client.query(QUERY).result()
+    df = table.to_dataframe()
 
     #df = table.to_dataframe()
 
