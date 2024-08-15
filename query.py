@@ -2,7 +2,6 @@ import streamlit as st
 from google.cloud import bigquery
 from google.oauth2 import service_account
 import pandas as pd
-import db_dtypes
 credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"]
 )
@@ -30,8 +29,7 @@ def paginate_dataframe(df, page, page_size):
 st.button('Search', on_click=click_button)
 
 if st.session_state.clicked:
-    table = client.query(QUERY).result()
-    df = table.to_dataframe()
+    df = client.query(QUERY).to_dataframe()
 
     #df = table.to_dataframe()
 
